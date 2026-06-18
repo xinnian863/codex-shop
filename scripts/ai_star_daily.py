@@ -292,6 +292,52 @@ def format_number(value: int | None) -> str:
     return f"{value:,}" if value is not None else "未知"
 
 
+def chinese_description(repo: Repo) -> str:
+    name = repo.full_name.lower()
+    text = " ".join([name, repo.description.lower(), " ".join(repo.topics)]).lower()
+
+    if "mcp" in text or "model context protocol" in text:
+        if any(word in text for word in ["code", "codebase", "repository", "memory", "graph"]):
+            return "面向代码库理解的 MCP 工具，可帮助 AI 助手建立代码索引、记忆和检索能力。"
+        if any(word in text for word in ["browser", "chrome", "devtools", "web"]):
+            return "面向浏览器或开发者工具的 MCP 服务，可把网页和调试能力接入 AI 工作流。"
+        return "基于 MCP 协议的 AI 工具服务，可扩展 Codex 或其他智能体的外部能力。"
+
+    if any(word in text for word in ["skill", "skills"]):
+        return "面向 AI 智能体的技能集合或技能框架，可复用任务模板、提示词和工作流结构。"
+
+    if any(word in text for word in ["agent", "agents", "agentic"]):
+        if any(word in text for word in ["social", "twitter", "reddit", "youtube", "bilibili", "xiaohongshu"]):
+            return "为 AI 智能体提供跨平台信息读取和搜索能力，适合增强外部资料获取。"
+        return "面向 AI 智能体的开发框架或工具，帮助构建多步骤自动化任务。"
+
+    if any(word in text for word in ["rag", "retrieval", "vector", "embedding"]):
+        return "面向 RAG、向量检索或知识库问答的项目，可改善文档检索和上下文召回。"
+
+    if any(word in text for word in ["ocr", "pdf", "document"]):
+        return "面向文档识别和结构化处理的工具，可把 PDF、图片等资料转成可分析内容。"
+
+    if any(word in text for word in ["voice", "speech", "tts", "audio"]):
+        return "面向语音、音频或文本转语音的 AI 项目，可扩展多模态输入输出能力。"
+
+    if any(word in text for word in ["vision", "image", "multimodal", "detector", "detection"]):
+        return "面向视觉理解或多模态处理的 AI 项目，可用于图片识别、检测或视觉自动化。"
+
+    if any(word in text for word in ["time series", "forecast", "forecasting"]):
+        return "面向时间序列预测的 AI 模型或工具，适合业务指标、趋势和预测类场景。"
+
+    if any(word in text for word in ["engineering", "from scratch", "tutorial", "course", "learn"]):
+        return "面向 AI 工程实践的学习资料或教程，适合提炼项目模板和实现路线。"
+
+    if any(word in text for word in ["claude", "codex", "openai", "chatgpt", "gpt"]):
+        return "围绕主流 AI 编程助手或大模型生态的工具，可作为 Codex 工作流参考。"
+
+    if any(word in text for word in ["llm", "model", "inference", "transformer"]):
+        return "面向大模型、推理或模型应用的开源项目，可作为 AI 工程能力参考。"
+
+    return "AI 相关开源项目，建议结合 README、示例和许可证进一步评估实际价值。"
+
+
 def build_report(repos: list[Repo]) -> tuple[str, str]:
     now = datetime.now(ZoneInfo("Asia/Shanghai"))
     date_text = now.strftime("%Y-%m-%d")
@@ -322,7 +368,7 @@ def build_report(repos: list[Repo]) -> tuple[str, str]:
                 f"   今日新增 Star：{growth_note}",
                 f"   当前 Star：{format_number(repo.stars)}",
                 f"   技术栈：{repo.language or '未知'}",
-                f"   简介：{repo.description or '暂无'}",
+                f"   中文简介：{chinese_description(repo)}",
                 f"   来源：{repo.source}",
                 "",
             ]
@@ -335,7 +381,7 @@ def build_report(repos: list[Repo]) -> tuple[str, str]:
             f"<td>{html.escape(growth_note)}</td>"
             f"<td>{format_number(repo.stars)}</td>"
             f"<td>{html.escape(repo.language or '未知')}</td>"
-            f"<td>{html.escape(repo.description or '暂无')}</td>"
+            f"<td>{html.escape(chinese_description(repo))}</td>"
             f"<td>{html.escape(repo.source)}</td>"
             "</tr>"
         )
@@ -376,7 +422,7 @@ def build_report(repos: list[Repo]) -> tuple[str, str]:
     <table cellpadding="8" cellspacing="0" border="1" style="border-collapse:collapse;border-color:#d7dee8;">
       <thead>
         <tr>
-          <th>排名</th><th>项目</th><th>今日新增 Star</th><th>当前 Star</th><th>技术栈</th><th>简介</th><th>来源</th>
+          <th>排名</th><th>项目</th><th>今日新增 Star</th><th>当前 Star</th><th>技术栈</th><th>中文简介</th><th>来源</th>
         </tr>
       </thead>
       <tbody>
