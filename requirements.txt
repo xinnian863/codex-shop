@@ -1,0 +1,2 @@
+# The daily report script intentionally uses only the Python standard library.
+
