@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>禾岸餐馆 | 城市里的旬味餐桌</title>
+    <meta
+      name="description"
+      content="禾岸餐馆首页，展示餐厅环境、招牌菜品、营业信息与预订入口。"
+    />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="禾岸餐馆首页">
+        <span class="brand-mark">禾</span>
+        <span>禾岸餐馆</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false" data-nav-toggle>
+        <i data-lucide="menu"></i>
+      </button>
+
+      <nav class="site-nav" aria-label="主导航" data-nav>
+        <a href="#menu">菜单</a>
+        <a href="#space">环境</a>
+        <a href="#hours">营业</a>
+        <a class="nav-cta" href="#reserve">预订</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-label="禾岸餐馆">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Seasonal Chinese Bistro</p>
+          <h1>禾岸餐馆</h1>
+          <p class="hero-copy">
+            把当季食材、炭火香气和一杯好酒，放进一张适合慢慢吃饭的城市餐桌。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#reserve">
+              <i data-lucide="calendar-check"></i>
+              立即订位
+            </a>
+            <a class="button secondary" href="#menu">
+              <i data-lucide="utensils"></i>
+              查看菜单
+            </a>
+          </div>
+        </div>
+        <aside class="hero-note" aria-label="今日推荐">
+          <span>今日推荐</span>
+          <strong>炭烤桂花鸭胸</strong>
+          <small>搭配柚子胡椒与时蔬</small>
+        </aside>
+      </section>
+
+      <section class="intro section-band">
+        <div class="section-inner intro-grid">
+          <div>
+            <p class="section-kicker">Dinner, lunch and private tables</p>
+            <h2>有烟火气，也有刚刚好的安静。</h2>
+          </div>
+          <p>
+            禾岸把中式风味做得更轻盈：午间适合商务简餐，夜晚适合朋友聚餐，
+            也为生日、小型宴请准备了独立包间与定制菜单。
+          </p>
+        </div>
+      </section>
+
+      <section class="menu-section" id="menu">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="section-kicker">Signature menu</p>
+            <h2>招牌菜品</h2>
+          </div>
+
+          <div class="dish-grid">
+            <article class="dish-card">
+              <img
+                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=82"
+                alt="香煎肉排与配菜"
+              />
+              <div>
+                <span class="dish-tag">炭火</span>
+                <h3>桂花鸭胸</h3>
+                <p>低温慢煮后炭烤收香，酸甜果香把油脂收得利落。</p>
+                <strong>¥128</strong>
+              </div>
+            </article>
+
+            <article class="dish-card">
+              <img
+                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=82"
+                alt="新鲜蔬菜谷物碗"
+              />
+              <div>
+                <span class="dish-tag">素食</span>
+                <h3>青柠时蔬碗</h3>
+                <p>烤南瓜、菌菇与藜麦，搭配青柠芝麻酱。</p>
+                <strong>¥48</strong>
+              </div>
+            </article>
+
+            <article class="dish-card">
+              <img
+                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=82"
+                alt="手工披萨"
+              />
+              <div>
+                <span class="dish-tag">分享</span>
+                <h3>窑烤菌菇薄饼</h3>
+                <p>手揉饼底、松露油和三种菌菇，适合两三人分享。</p>
+                <strong>¥88</strong>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-section" id="space">
+        <div class="section-inner space-grid">
+          <div class="space-image">
+            <img
+              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=82"
+              alt="温暖灯光下的餐厅空间"
+            />
+          </div>
+          <div class="space-copy">
+            <p class="section-kicker">The room</p>
+            <h2>木质、暖光、开放厨房。</h2>
+            <p>
+              从吧台到长桌，每个座位都留出舒适距离。开放厨房让炭火与锅气成为晚餐的一部分，
+              但不会打扰交谈。
+            </p>
+            <div class="feature-list" aria-label="餐厅特色">
+              <span><i data-lucide="flame"></i> 炭火料理</span>
+              <span><i data-lucide="wine"></i> 精选酒单</span>
+              <span><i data-lucide="door-open"></i> 独立包间</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section" id="hours">
+        <div class="section-inner info-grid">
+          <div class="info-panel">
+            <i data-lucide="clock"></i>
+            <h2>营业时间</h2>
+            <p>周一至周五 11:30 - 14:00 / 17:30 - 22:00</p>
+            <p>周末及节假日 11:30 - 22:30</p>
+          </div>
+          <div class="info-panel">
+            <i data-lucide="map-pin"></i>
+            <h2>餐厅地址</h2>
+            <p>上海市静安区梧桐路 88 号 1 层</p>
+            <p>地铁 2 号线步行 6 分钟</p>
+          </div>
+          <div class="info-panel">
+            <i data-lucide="phone"></i>
+            <h2>预订电话</h2>
+            <p>021-8866-1024</p>
+            <p>6 人以上建议提前 1 天预约</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="reserve-section" id="reserve">
+        <div class="section-inner reserve-grid">
+          <div>
+            <p class="section-kicker">Reservation</p>
+            <h2>为今晚留一张桌。</h2>
+            <p>
+              选择用餐人数和时段，我们会尽快确认座位。临窗位、包间或生日布置可在备注中说明。
+            </p>
+          </div>
+
+          <form class="reserve-form" aria-label="预订表单">
+            <label>
+              姓名
+              <input type="text" name="name" placeholder="您的称呼" autocomplete="name" />
+            </label>
+            <label>
+              手机
+              <input type="tel" name="phone" placeholder="用于确认预订" autocomplete="tel" />
+            </label>
+            <label>
+              人数
+              <select name="party">
+                <option>2 位</option>
+                <option>3-4 位</option>
+                <option>5-6 位</option>
+                <option>7 位以上</option>
+              </select>
+            </label>
+            <label>
+              时间
+              <select name="time">
+                <option>今晚 18:00</option>
+                <option>今晚 19:30</option>
+                <option>明天 12:00</option>
+                <option>明天 18:30</option>
+              </select>
+            </label>
+            <button class="button primary form-button" type="submit">
+              <i data-lucide="send"></i>
+              提交预订
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>禾岸餐馆</span>
+      <span>城市旬味 · 炭火小馆 · 上海静安</span>
+    </footer>
+  </body>
+</html>
